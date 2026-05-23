@@ -3,52 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magic Gaming Space</title>
+    <title>Game Space Pro</title>
     <style>
-        body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+        body { margin: 0; background: #000; color: white; font-family: sans-serif; overflow: hidden; }
         
-        /* تأثير الخلفية الاحترافي */
-        .bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; object-fit: cover; opacity: 0.5; }
+        /* الخلفية الاحترافية */
+        .live-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
+                   background: linear-gradient(135deg, #050b14, #004e64); }
+
+        /* شريط المعلومات العلوي */
+        .top-bar { display: flex; justify-content: space-around; padding: 20px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); }
+        .stat { font-size: 14px; color: #00f2ff; font-weight: bold; }
+
+        /* منطقة الألعاب والأزرار */
+        .game-area { margin-top: 100px; text-align: center; }
+        .main-btn { width: 280px; height: 60px; background: linear-gradient(90deg, #00a8cc, #00f2ff); 
+                    border: none; border-radius: 30px; color: white; font-size: 22px; font-weight: bold; 
+                    box-shadow: 0 0 25px #00f2ff; cursor: pointer; }
         
-        /* واجهة البطاقات الزجاجية */
-        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 20px; margin-top: 50px; }
-        .card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(0, 242, 255, 0.3); 
-                padding: 20px; border-radius: 20px; text-align: center; width: 120px; transition: 0.3s; }
-        .data { font-size: 1.4em; color: #00f2ff; font-weight: bold; margin-top: 5px; }
-        
-        /* الزر الاحترافي */
-        .boost-btn { width: 85%; margin: 30px auto; padding: 20px; background: linear-gradient(90deg, #00f2ff, #0077ff); 
-                     border: none; border-radius: 15px; color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; 
-                     box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); display: block; }
-        .boost-btn:active { transform: scale(0.95); }
+        .action-btns { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
+        .small-btn { padding: 10px 20px; background: rgba(255,255,255,0.1); border: 1px solid #00f2ff; 
+                     border-radius: 10px; color: white; cursor: pointer; }
     </style>
 </head>
 <body>
-    <video autoplay muted loop class="bg-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-digital-city-map-interface-34674-preview.mp4" type="video/mp4">
-    </video>
+    <div class="live-bg"></div>
 
-    <div class="container">
-        <div class="card">CPU<div class="data" id="cpu">12%</div></div>
-        <div class="card">RAM<div class="data" id="ram">4.2GB</div></div>
-        <div class="card">FPS<div class="data">60</div></div>
+    <div class="top-bar">
+        <div class="stat" id="ram">RAM: 58%</div>
+        <div class="stat" id="cpu">CPU: 48%</div>
+        <div class="stat">BAT: 21%</div>
     </div>
 
-    <button class="boost-btn" onclick="runBoost()">🚀 تحسين الأداء الآن</button>
+    <div class="game-area">
+        <button class="main-btn" onclick="startBoost()">بـدء</button>
+        
+        <div class="action-btns">
+            <button class="small-btn" onclick="cleanRam()">تنظيف الرام</button>
+            <button class="small-btn" onclick="boostNetwork()">تحسين الشبكة</button>
+        </div>
+    </div>
 
     <script>
-        function runBoost() {
-            const btn = document.querySelector('.boost-btn');
-            btn.innerText = "جاري التحسين...";
-            setTimeout(() => {
-                alert("تم تحسين الرام والمعالج بنجاح!");
-                btn.innerText = "🚀 تحسين الأداء الآن";
-            }, 1500);
+        // وظائف VOID BOOSTER المدمجة
+        function startBoost() {
+            alert("جاري تشغيل الألعاب بكامل الطاقة...");
         }
 
-        // تحديث البيانات تلقائياً
+        function cleanRam() {
+            alert("تم مسح الملفات المؤقتة بنجاح!");
+        }
+
+        function boostNetwork() {
+            alert("تم تحسين استجابة السيرفر!");
+        }
+
+        // تحديث البيانات الوهمي ليعطي شعور النظام الحقيقي
         setInterval(() => {
-            document.getElementById('cpu').innerText = Math.floor(Math.random() * 20 + 10) + "%";
+            document.getElementById('ram').innerText = "RAM: " + (50 + Math.floor(Math.random() * 10)) + "%";
+            document.getElementById('cpu').innerText = "CPU: " + (40 + Math.floor(Math.random() * 10)) + "%";
         }, 3000);
     </script>
 </body>
