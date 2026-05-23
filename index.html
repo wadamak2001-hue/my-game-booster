@@ -2,28 +2,54 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Gaming Space</title>
     <style>
-        body { margin: 0; background: #000; color: #fff; font-family: sans-serif; overflow: hidden; }
-        /* تأثير الفيديو في الخلفية */
-        .bg-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; z-index: -1; opacity: 0.4; }
-        /* شاشة الافتتاح (Splash Screen) */
-        #splash { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; align-items: center; justify-content: center; z-index: 1000; animation: fadeOut 2s forwards 2s; }
-        @keyframes fadeOut { to { opacity: 0; visibility: hidden; } }
-        /* واجهة المستخدم */
-        .container { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; }
-        .card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid #00ff41; }
-        .data { font-size: 1.2em; color: #00ff41; }
+        body { margin: 0; padding: 0; background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
+        
+        /* تأثير الخلفية الاحترافي */
+        .bg-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; object-fit: cover; opacity: 0.5; }
+        
+        /* واجهة البطاقات الزجاجية */
+        .container { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; padding: 20px; margin-top: 50px; }
+        .card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(0, 242, 255, 0.3); 
+                padding: 20px; border-radius: 20px; text-align: center; width: 120px; transition: 0.3s; }
+        .data { font-size: 1.4em; color: #00f2ff; font-weight: bold; margin-top: 5px; }
+        
+        /* الزر الاحترافي */
+        .boost-btn { width: 85%; margin: 30px auto; padding: 20px; background: linear-gradient(90deg, #00f2ff, #0077ff); 
+                     border: none; border-radius: 15px; color: #fff; font-size: 18px; font-weight: bold; cursor: pointer; 
+                     box-shadow: 0 0 20px rgba(0, 242, 255, 0.4); display: block; }
+        .boost-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
-    <video autoplay muted loop class="bg-video"><source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4"></video>
-    
-    <div id="splash"><h1>⚡ GAME BOOSTER PRO</h1></div>
+    <video autoplay muted loop class="bg-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-cyberpunk-digital-city-map-interface-34674-preview.mp4" type="video/mp4">
+    </video>
 
     <div class="container">
-        <div class="card">الرام<div class="data">8GB</div></div>
-        <div class="card">البينج<div class="data">24ms</div></div>
+        <div class="card">CPU<div class="data" id="cpu">12%</div></div>
+        <div class="card">RAM<div class="data" id="ram">4.2GB</div></div>
+        <div class="card">FPS<div class="data">60</div></div>
     </div>
-    <button style="width: 90%; margin: 20px auto; padding: 20px; background: #00ff41; border: none; border-radius: 10px; font-weight: bold; display: block;">تحسين الأداء الآن</button>
+
+    <button class="boost-btn" onclick="runBoost()">🚀 تحسين الأداء الآن</button>
+
+    <script>
+        function runBoost() {
+            const btn = document.querySelector('.boost-btn');
+            btn.innerText = "جاري التحسين...";
+            setTimeout(() => {
+                alert("تم تحسين الرام والمعالج بنجاح!");
+                btn.innerText = "🚀 تحسين الأداء الآن";
+            }, 1500);
+        }
+
+        // تحديث البيانات تلقائياً
+        setInterval(() => {
+            document.getElementById('cpu').innerText = Math.floor(Math.random() * 20 + 10) + "%";
+        }, 3000);
+    </script>
 </body>
 </html>
