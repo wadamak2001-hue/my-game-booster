@@ -2,67 +2,33 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Space Pro</title>
     <style>
-        body { margin: 0; background: #000; color: white; font-family: sans-serif; overflow: hidden; }
+        /* إعدادات الشاشة الكاملة ونظام الألوان */
+        body { margin: 0; background: #050b14; color: #fff; font-family: 'Segoe UI', sans-serif; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
         
-        /* الخلفية الاحترافية */
-        .live-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
-                   background: linear-gradient(135deg, #050b14, #004e64); }
-
-        /* شريط المعلومات العلوي */
-        .top-bar { display: flex; justify-content: space-around; padding: 20px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); }
-        .stat { font-size: 14px; color: #00f2ff; font-weight: bold; }
-
-        /* منطقة الألعاب والأزرار */
-        .game-area { margin-top: 100px; text-align: center; }
-        .main-btn { width: 280px; height: 60px; background: linear-gradient(90deg, #00a8cc, #00f2ff); 
-                    border: none; border-radius: 30px; color: white; font-size: 22px; font-weight: bold; 
-                    box-shadow: 0 0 25px #00f2ff; cursor: pointer; }
+        /* تأثير الإضاءة المحيطة */
+        .glow-bg { position: fixed; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #002d42 0%, #050b14 70%); z-index: -1; }
         
-        .action-btns { margin-top: 30px; display: flex; justify-content: center; gap: 15px; }
-        .small-btn { padding: 10px 20px; background: rgba(255,255,255,0.1); border: 1px solid #00f2ff; 
-                     border-radius: 10px; color: white; cursor: pointer; }
+        /* البطاقات الاحترافية (Glassmorphism) */
+        .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 90%; margin-bottom: 30px; }
+        .box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(0, 242, 255, 0.2); border-radius: 15px; padding: 15px; text-align: center; backdrop-filter: blur(5px); }
+        .box-title { color: #888; font-size: 0.8em; margin-bottom: 5px; }
+        .box-value { color: #00f2ff; font-weight: bold; font-size: 1.2em; text-shadow: 0 0 10px #00f2ff; }
+        
+        /* زر الأداء العالي */
+        .start-btn { width: 90%; padding: 20px; background: linear-gradient(90deg, #0077ff, #00f2ff); border: none; border-radius: 15px; color: #fff; font-size: 1.2em; font-weight: bold; cursor: pointer; box-shadow: 0 0 20px rgba(0, 242, 255, 0.3); transition: 0.3s; }
+        .start-btn:active { transform: scale(0.97); }
     </style>
 </head>
 <body>
-    <div class="live-bg"></div>
+    <div class="glow-bg"></div>
 
-    <div class="top-bar">
-        <div class="stat" id="ram">RAM: 58%</div>
-        <div class="stat" id="cpu">CPU: 48%</div>
-        <div class="stat">BAT: 21%</div>
+    <div class="grid-container">
+        <div class="box"><div class="box-title">CPU</div><div class="box-value">12%</div></div>
+        <div class="box"><div class="box-title">RAM</div><div class="box-value">4.2GB</div></div>
+        <div class="box"><div class="box-title">FPS</div><div class="box-value">60</div></div>
     </div>
 
-    <div class="game-area">
-        <button class="main-btn" onclick="startBoost()">بـدء</button>
-        
-        <div class="action-btns">
-            <button class="small-btn" onclick="cleanRam()">تنظيف الرام</button>
-            <button class="small-btn" onclick="boostNetwork()">تحسين الشبكة</button>
-        </div>
-    </div>
-
-    <script>
-        // وظائف VOID BOOSTER المدمجة
-        function startBoost() {
-            alert("جاري تشغيل الألعاب بكامل الطاقة...");
-        }
-
-        function cleanRam() {
-            alert("تم مسح الملفات المؤقتة بنجاح!");
-        }
-
-        function boostNetwork() {
-            alert("تم تحسين استجابة السيرفر!");
-        }
-
-        // تحديث البيانات الوهمي ليعطي شعور النظام الحقيقي
-        setInterval(() => {
-            document.getElementById('ram').innerText = "RAM: " + (50 + Math.floor(Math.random() * 10)) + "%";
-            document.getElementById('cpu').innerText = "CPU: " + (40 + Math.floor(Math.random() * 10)) + "%";
-        }, 3000);
-    </script>
+    <button class="start-btn" onclick="alert('تفعيل وضع الألعاب...');">بـدء تعزيز الأداء</button>
 </body>
 </html>
