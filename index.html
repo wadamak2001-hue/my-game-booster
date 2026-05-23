@@ -3,78 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Space Pro</title>
+    <title>Game Space</title>
     <style>
-        body { 
-            margin: 0; 
-            background-color: #050505; 
-            color: #ffffff; 
-            font-family: 'Segoe UI', sans-serif; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            height: 100vh; 
-            overflow: hidden; 
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #ffffff;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
-
-        /* تأثير الخلفية المظلمة */
-        .bg-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, #1a1a2e 0%, #050505 80%);
-            z-index: -1;
+        .card {
+            background-color: #111111;
+            border: 2px solid #00f2ff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
         }
-
-        /* تصميم البطاقات الاحترافي */
-        .card { 
-            background: rgba(255, 255, 255, 0.05); 
-            border: 1px solid rgba(0, 242, 255, 0.3); 
-            border-radius: 20px; 
-            padding: 20px; 
-            margin: 10px; 
-            width: 250px; 
-            text-align: center; 
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        .value {
+            color: #00f2ff;
+            font-size: 24px;
+            font-weight: bold;
         }
-
-        .data { 
-            color: #00f2ff; 
-            font-size: 1.6em; 
-            font-weight: bold; 
-            margin-top: 5px;
-            text-shadow: 0 0 10px #00f2ff;
+        .btn {
+            margin-top: 20px;
+            padding: 15px 40px;
+            background-color: #00f2ff;
+            border: none;
+            border-radius: 30px;
+            color: #000;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
         }
-
-        /* تصميم الزر المضيء */
-        .boost-btn { 
-            width: 280px; 
-            padding: 18px; 
-            margin-top: 30px; 
-            background: linear-gradient(90deg, #00f2ff, #0077ff); 
-            border: none; 
-            border-radius: 40px; 
-            color: white; 
-            font-size: 18px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .boost-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
-    <div class="bg-glow"></div>
-
-    <div class="card">CPU <div class="data" id="cpu">17%</div></div>
-    <div class="card">RAM <div class="data" id="ram">4.2GB</div></div>
-    <div class="card">FPS <div class="data">60</div></div>
+    <div class="card">CPU: <span class="value">17%</span></div>
+    <div class="card">RAM: <span class="value">4.2GB</span></div>
+    <div class="card">FPS: <span class="value">60</span></div>
     
-    <button class="boost-btn" onclick="alert('جاري تحسين أداء الجهاز...')">🚀 تحسين الأداء الآن</button>
+    <button class="btn" onclick="alert('تم تحسين الأداء بنجاح!')">تحسين الأداء</button>
 
 </body>
 </html>
