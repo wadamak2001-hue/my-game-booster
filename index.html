@@ -2,38 +2,38 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>VOID GAME ENGINE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Space Pro</title>
     <style>
-        body { margin: 0; background: #0a0a0a; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; }
+        body { margin: 0; background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden; }
         
-        /* واجهة علوية احترافية */
-        .dashboard { width: 100%; padding: 30px 20px; background: linear-gradient(180deg, #111, #0a0a0a); text-align: center; border-bottom: 2px solid #00f2ff; }
-        .status-bar { font-size: 1.2em; color: #00f2ff; margin-bottom: 10px; }
-        
-        /* قائمة التطبيقات (المشغل) */
-        .app-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 20px; width: 90%; }
-        .app-item { background: #1a1a1a; padding: 20px; border-radius: 20px; text-align: center; border: 1px solid #333; transition: 0.3s; }
-        .app-item:active { background: #00f2ff; color: #000; }
-        
-        /* زر التعزيز العالمي */
-        .master-btn { position: fixed; bottom: 30px; width: 90%; padding: 20px; background: #00f2ff; border: none; border-radius: 40px; font-weight: bold; font-size: 1.2em; box-shadow: 0 0 40px #00f2ff; }
+        /* رأس الصفحة */
+        .header { width: 100%; padding: 30px; text-align: center; font-size: 26px; font-weight: bold; color: #00f2ff; text-shadow: 0 0 15px #00f2ff; }
+
+        /* منطقة الألعاب (Grid) */
+        .games-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 90%; margin-top: 10px; }
+        .game-card { background: rgba(20, 20, 20, 0.8); border: 1px solid #333; border-radius: 20px; padding: 20px; text-align: center; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .game-card:active { border-color: #00f2ff; transform: scale(0.95); }
+
+        /* الأيقونات */
+        .icon { font-size: 40px; margin-bottom: 10px; display: block; }
+
+        /* زر التحسين الكبير */
+        .boost-btn { margin-top: 50px; width: 85%; padding: 22px; background: linear-gradient(90deg, #00f2ff, #0077ff); border: none; border-radius: 50px; color: white; font-size: 20px; font-weight: bold; box-shadow: 0 0 30px rgba(0, 242, 255, 0.4); cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div class="dashboard">
-        <div class="status-bar">نظام VOID جاهز - الأداء الأمثل</div>
-        <h1>مركز الألعاب</h1>
+    <div class="header">VOID GAME SPACE</div>
+
+    <div class="games-grid">
+        <div class="game-card"><span class="icon">🔥</span>Free Fire</div>
+        <div class="game-card"><span class="icon">🔫</span>PUBG</div>
+        <div class="game-card"><span class="icon">🏎️</span>Asphalt</div>
+        <div class="game-card"><span class="icon">🎮</span>More</div>
     </div>
 
-    <div class="app-grid">
-        <div class="app-item" onclick="alert('فتح Free Fire...')">🎮 Free Fire</div>
-        <div class="app-item" onclick="alert('فتح PUBG...')">🎮 PUBG</div>
-        <div class="app-item" onclick="alert('فتح Call of Duty...')">🎮 CoD</div>
-        <div class="app-item" onclick="alert('فتح Genshin...')">🎮 Genshin</div>
-    </div>
-
-    <button class="master-btn" onclick="alert('تم تنظيف النظام وتسريع الألعاب!')">🚀 تفعيل المحرك بالكامل</button>
+    <button class="boost-btn" onclick="alert('جاري تنظيف الرام وتحسين أداء المعالج...')">🚀 تفعيل المحرك بالكامل</button>
 
 </body>
 </html>
