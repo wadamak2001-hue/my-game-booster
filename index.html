@@ -5,53 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Space</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: #000000;
-            color: #ffffff;
-            font-family: sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* إعدادات الخلفية الحية */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            background: radial-gradient(circle at center, #001f3f, #000000);
+            color: #fff; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
             height: 100vh;
         }
-        .card {
-            background-color: #111111;
-            border: 2px solid #00f2ff;
-            border-radius: 15px;
-            padding: 20px;
-            margin: 10px;
-            width: 80%;
-            max-width: 300px;
-            text-align: center;
+
+        /* البطاقات الزجاجية المتوهجة */
+        .card { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid rgba(0, 242, 255, 0.5); 
+            border-radius: 20px; 
+            padding: 20px; 
+            margin: 10px; 
+            width: 80%; 
+            max-width: 280px; 
+            text-align: center; 
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
         }
-        .value {
-            color: #00f2ff;
-            font-size: 24px;
-            font-weight: bold;
+
+        .value { 
+            color: #00f2ff; 
+            font-size: 28px; 
+            font-weight: bold; 
+            text-shadow: 0 0 10px #00f2ff;
         }
-        .btn {
-            margin-top: 20px;
-            padding: 15px 40px;
-            background-color: #00f2ff;
-            border: none;
-            border-radius: 30px;
-            color: #000;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
+
+        /* زر التحسين النيون */
+        .btn { 
+            margin-top: 30px; 
+            padding: 20px 50px; 
+            background: linear-gradient(90deg, #00f2ff, #0077ff); 
+            border: none; 
+            border-radius: 50px; 
+            color: white; 
+            font-size: 20px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
+            transition: 0.3s;
         }
+        
+        .btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
-    <div class="card">CPU: <span class="value">17%</span></div>
-    <div class="card">RAM: <span class="value">4.2GB</span></div>
-    <div class="card">FPS: <span class="value">60</span></div>
+    <div class="card">المعالج <div class="value">17%</div></div>
+    <div class="card">الرام <div class="value">4.2GB</div></div>
+    <div class="card">الإطارات <div class="value">60 FPS</div></div>
     
-    <button class="btn" onclick="alert('تم تحسين الأداء بنجاح!')">تحسين الأداء</button>
+    <button class="btn" onclick="alert('جاري تسريع الألعاب...')">🚀 تحسين الأداء</button>
 
 </body>
 </html>
